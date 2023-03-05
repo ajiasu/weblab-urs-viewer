@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="4">
+      <v-col cols="12" sm="4">
         <v-card class="pa-2 mb-2">
           <v-card-title>Zigaretten</v-card-title>
           <v-card-text>{{ weighings.cigarettes }}</v-card-text>
@@ -19,14 +19,13 @@
           <v-card-text>{{ weighings.valuables }}</v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="4">
-      <v-card class="pa-2 mb-2">
-      <v-card-title><ursTimer ref="ursTimer" /></v-card-title>
-      </v-card>
-        <ursCanvas />
-      
+      <v-col cols="12" sm="4">
+        <v-card class="pa-2 mb-2">
+          <v-card-title><ursTimer ref="ursTimer" /></v-card-title>
+        </v-card>
+        <ursCanvas style="display: flex; justify-content: center;" />
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" sm="4">
         <v-card class="pa-2 mb-2">
           <v-card-title>Status</v-card-title>
           <v-card-text>{{ status }}</v-card-text>
@@ -125,7 +124,7 @@ export default {
       type: "updateStates",
       callback: (message) => {
         this.status = message;
-        if(message === "Starting Up") {
+        if (message === "Starting Up") {
           this.$refs.ursTimer.resetTimer();
           this.$refs.ursTimer.startTimer();
         } else if (message === "Stopped") {

@@ -6,18 +6,12 @@
           <span>U.R.S.</span>
           <span class="font-weight-light">Team 6</span>
         </v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-sm-and-down">
+        <v-spacer class="hidden-sm-and-down"></v-spacer>
+        <v-toolbar-items>
           <v-btn flat to="/" exact>Viewer</v-btn>
           <v-btn flat to="/" exact>Admin</v-btn>
         </v-toolbar-items>
       </v-toolbar>
-      <v-navigation-drawer v-model="drawer" temporary>
-        <v-list>
-          <v-list-item to="/" exact>Viewer</v-list-item>
-          <v-list-item to="/" exact>Admin</v-list-item>
-        </v-list>
-      </v-navigation-drawer>
     </nav>
     <v-main>
       <ursViewer/>
@@ -36,7 +30,6 @@ export default {
   },
 
   data: () => ({
-    drawer: false
   }),
 }
 </script>
