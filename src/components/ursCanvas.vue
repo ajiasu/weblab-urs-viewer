@@ -49,7 +49,7 @@ export default {
   methods: {
     draw() {
       // Hintergrund grau machen
-      this.ctx.fillStyle = "lightgray";
+      this.ctx.fillStyle = "#e6e6e6";
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
       // Linie zeichnen
