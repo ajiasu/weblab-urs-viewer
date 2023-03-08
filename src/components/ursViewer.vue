@@ -23,7 +23,9 @@
         <v-card class="pa-2 mb-2">
           <v-card-title><ursTimer ref="ursTimer" /></v-card-title>
         </v-card>
-        <ursCanvas style="display: flex; justify-content: center;" />
+        <v-card class="pa-0 mb-2">
+          <v-card-title><ursCanvas /></v-card-title>
+        </v-card>
       </v-col>
       <v-col cols="12" sm="4">
         <v-card class="pa-2 mb-2">

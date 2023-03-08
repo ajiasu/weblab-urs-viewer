@@ -29,19 +29,17 @@ export default {
     socketio.addEventListener({
       type: "updateStates",
       callback: (message) => {
-        if(message === "Starting Up") {
-          this.positions = [[0,0]]
+        if (message === "Starting Up") {
+          this.positions = [[0, 0]];
           this.draw();
         }
       },
     });
-    this.$nextTick(() => {
-      this.canvas = this.$refs.canvas;
-      this.ctx = this.canvas.getContext("2d");
-      window.addEventListener("resize", this.onWindowResize);
-      this.draw();
-      this.onWindowResize();
-    });
+    this.canvas = this.$refs.canvas;
+    this.ctx = this.canvas.getContext("2d");
+    window.addEventListener("resize", this.onWindowResize);
+    this.draw();
+    this.onWindowResize();
   },
   beforeUnmount() {
     window.removeEventListener("resize", this.onWindowResize);
@@ -56,9 +54,15 @@ export default {
       this.ctx.beginPath();
       const scaleX = this.canvas.width / this.canvasSize;
       const scaleY = this.canvas.height / this.canvasSize;
-      this.ctx.moveTo(this.positions[0][0] * scaleX, this.positions[0][1] * scaleY);
+      this.ctx.moveTo(
+        this.positions[0][0] * scaleX,
+        this.positions[0][1] * scaleY
+      );
       for (let i = 1; i < this.positions.length; i++) {
-        this.ctx.lineTo(this.positions[i][0] * scaleX, this.positions[i][1] * scaleY);
+        this.ctx.lineTo(
+          this.positions[i][0] * scaleX,
+          this.positions[i][1] * scaleY
+        );
       }
       // Linienfarbe auf rot setzen
       this.ctx.strokeStyle = "red";
@@ -74,6 +78,8 @@ export default {
       this.canvasSize = containerSize;
       this.canvas.width = containerSize;
       this.canvas.height = containerSize;
+      //log new canvas size to console
+      console.log(this.canvas.width, this.canvas.height);
       this.draw();
     },
   },
